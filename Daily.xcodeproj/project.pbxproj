@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		713ADE543DD505C7AE029C25 /* libPods-Daily.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D0EAB9251F20336D9A0075 /* libPods-Daily.a */; };
+		9D645A591F1CDD030021C4C8 /* YJMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D645A581F1CDD030021C4C8 /* YJMenuView.m */; };
+		9D645A5C1F1D026C0021C4C8 /* YJFloationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D645A5B1F1D026C0021C4C8 /* YJFloationView.m */; };
 		9DC63A681F1C8287007C16E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC63A671F1C8287007C16E4 /* main.m */; };
 		9DC63A6B1F1C8287007C16E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC63A6A1F1C8287007C16E4 /* AppDelegate.m */; };
 		9DC63A711F1C8287007C16E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC63A6F1F1C8287007C16E4 /* Main.storyboard */; };
@@ -31,6 +33,10 @@
 		066F5358EF92BAF658050577 /* Pods-Daily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Daily/Pods-Daily.debug.xcconfig"; sourceTree = "<group>"; };
 		22D0EAB9251F20336D9A0075 /* libPods-Daily.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Daily.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B865CBF68CE2B5A8A30D1E0 /* Pods-Daily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily.release.xcconfig"; path = "Pods/Target Support Files/Pods-Daily/Pods-Daily.release.xcconfig"; sourceTree = "<group>"; };
+		9D645A571F1CDD030021C4C8 /* YJMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJMenuView.h; sourceTree = "<group>"; };
+		9D645A581F1CDD030021C4C8 /* YJMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJMenuView.m; sourceTree = "<group>"; };
+		9D645A5A1F1D026C0021C4C8 /* YJFloationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFloationView.h; sourceTree = "<group>"; };
+		9D645A5B1F1D026C0021C4C8 /* YJFloationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFloationView.m; sourceTree = "<group>"; };
 		9DC63A631F1C8287007C16E4 /* Daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC63A671F1C8287007C16E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DC63A691F1C8287007C16E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -178,6 +184,10 @@
 				9DC63AA01F1C9E20007C16E4 /* YJLoopViewCell.m */,
 				9DC63AA21F1CAC96007C16E4 /* YJHomeTableViewCell.h */,
 				9DC63AA31F1CAC96007C16E4 /* YJHomeTableViewCell.m */,
+				9D645A571F1CDD030021C4C8 /* YJMenuView.h */,
+				9D645A581F1CDD030021C4C8 /* YJMenuView.m */,
+				9D645A5A1F1D026C0021C4C8 /* YJFloationView.h */,
+				9D645A5B1F1D026C0021C4C8 /* YJFloationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,10 +341,12 @@
 				9DC63A981F1C961B007C16E4 /* YJBannerModel.m in Sources */,
 				9DC63A851F1C8514007C16E4 /* YJHomeViewController.m in Sources */,
 				9DC63A921F1C90BE007C16E4 /* YJCategoryModel.m in Sources */,
+				9D645A5C1F1D026C0021C4C8 /* YJFloationView.m in Sources */,
 				9DC63A951F1C91E5007C16E4 /* YJFeedsModel.m in Sources */,
 				9DC63A6B1F1C8287007C16E4 /* AppDelegate.m in Sources */,
 				9DC63AA11F1C9E20007C16E4 /* YJLoopViewCell.m in Sources */,
 				9DC63A8F1F1C9040007C16E4 /* YJPostModel.m in Sources */,
+				9D645A591F1CDD030021C4C8 /* YJMenuView.m in Sources */,
 				9DC63A681F1C8287007C16E4 /* main.m in Sources */,
 				9DC63AA41F1CAC96007C16E4 /* YJHomeTableViewCell.m in Sources */,
 				9DC63A9B1F1C9709007C16E4 /* YJLoopView.m in Sources */,

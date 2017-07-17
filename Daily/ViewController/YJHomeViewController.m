@@ -14,8 +14,12 @@
 #import "YJLoopView.h"
 #import "YJHomeTableViewCell.h"
 #import "YJReadViewController.h"
+#import "YJMenuView.h"
+#import "YJFloationView.h"
 @interface YJHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *mainTable;
+@property (nonatomic, strong) YJMenuView *menuView;
+@property (nonatomic, strong) YJFloationView *floationView;
 @property (nonatomic, copy) NSArray *feedsArray;
 @property (nonatomic, copy) NSArray *bannersArray;
 @property (nonatomic, copy) NSArray *imageArray;
@@ -32,6 +36,62 @@
 	NSString *_last_key;
 	NSString *_has_more;
 	CGFloat _contentOffset_Y;
+}
+-(YJFloationView *)floationView
+{
+	if (!_floationView) {
+		_floationView = [[YJFloationView alloc] initWithFrame:CGRectMake(10, SCREENH_HEIGHT - 70, 54, 54)];
+		_floationView.YJFloatingButtonStyle = YJFloatingButtonQStyle;
+		__weak typeof(self) weakSelf = self;
+		[_floationView popupMenuBlock:^{
+			__strong typeof(self) strongSelf = weakSelf;
+			if (strongSelf) {
+				[strongSelf.view insertSubview:strongSelf.menuView
+								  belowSubview:strongSelf.floationView];
+				[strongSelf.menuView popupMenuViewAnimation];
+			}
+		}];
+		[_floationView closeMenuBlock:^{
+			[weakSelf.menuView hideMenuViewAnimation];
+		}];
+	}
+	return _floationView;
+}
+-(YJMenuView *)menuView
+{
+	if (!_menuView) {
+		_menuView = [[YJMenuView alloc] initWithFrame:self.view.bounds];
+		_menuView.backgroundColor = [UIColor clearColor];
+		__weak typeof(self) weakSelf = self;
+		[_menuView popupNewsClassificationViewBlock:^{
+			__strong typeof(self) strongSelf = weakSelf;
+			if (strongSelf) {
+				//重置悬浮按钮的Tag
+				strongSelf.floationView.YJFloatingButtonStyle = YJFloatingButtonStyleBackType2;
+				[strongSelf suspensionViewOffsetX:-SCREEN_WIDTH - 100];
+			}
+		}];
+		[_menuView hideNewsClassificationViewBlock:^{
+			//隐藏新闻分类菜单
+			[weakSelf.menuView hideJFNewsClassificationViewAnimation];
+			[UIView animateWithDuration:0.7 //动画时间
+								  delay:0   //动画延迟
+				 usingSpringWithDamping:0.5 //越接近零，震荡越大；1时为平滑的减速动画
+				  initialSpringVelocity:0.15 //弹簧的初始速度 （距离/该值）pt/s
+								options:UIViewAnimationOptionCurveEaseIn
+							 animations:^{
+								 [self suspensionViewOffsetX:10];
+							 }
+							 completion:nil];
+		}];
+	}
+	return _menuView;
+}
+/// 改变悬浮按钮的X值
+- (void)suspensionViewOffsetX:(CGFloat)offsetX {
+	CGRect tempFrame = self.floationView.frame;
+	tempFrame.origin.x = offsetX;
+	self.floationView.frame = tempFrame;
 }
 -(NetworkManager *)manager
 {
@@ -120,6 +180,7 @@
 {
 	[super loadView];
 	[self.view addSubview:self.mainTable];
+	[self.view addSubview:self.floationView];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -243,5 +304,19 @@
 //	if (scrollView.contentOffset.y) {
 //		<#statements#>
 //	}
+}
+/// 停止滚动时调用
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+	_contentOffset_Y = scrollView.contentOffset.y;
+	//停止后显示悬浮按钮
+	[self suspensionWithAlpha:1];
+}
+
+/// 设置悬浮按钮view透明度，以此显示和隐藏悬浮按钮
+- (void)suspensionWithAlpha:(CGFloat)alpha {
+	[UIView animateWithDuration:0.3
+					 animations:^{
+						 [self.floationView setAlpha:alpha];
+					 }];
 }
 @end
