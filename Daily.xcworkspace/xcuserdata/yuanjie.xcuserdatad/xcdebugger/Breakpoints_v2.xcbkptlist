@@ -36,44 +36,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Daily/ViewController/YJHomeViewController.m"
-            timestampString = "521997458.819605"
+            timestampString = "521998749.229555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-floationView"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-menuView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Daily/View/YJFloationView.m"
-            timestampString = "521997472.041816"
+            filePath = "Daily/ViewController/YJReadViewController.m"
+            timestampString = "522604685.135623"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "-initWithFrame:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Daily/View/YJFloationView.m"
-            timestampString = "521997474.120662"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-layoutSubviews"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-hideSuspenstionButton"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

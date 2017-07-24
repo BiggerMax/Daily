@@ -147,7 +147,9 @@
 		__weak typeof(self) weakSelf = self;
 #pragma mark
 		[loopView didSelectCollectionItemBlock:^(NSString *Url) {
-			[weakSelf.navigationController pushViewController:[UIViewController new] animated:YES];
+            YJReadViewController *readVC = [YJReadViewController new];
+            readVC.newsUrl = Url;
+			[weakSelf.navigationController pushViewController:readVC animated:YES];
 		}];
 		self.mainTable.tableHeaderView = loopView;
 	}
@@ -288,9 +290,10 @@
 {
 	YJFeedsModel *feed = self.dataArray[indexPath.row];
 	if (![feed.type isEqualToString:@"0"]) {
-		YJReadViewController *readVC = [YJReadViewController new];
+		YJReadViewController *readVC = [[YJReadViewController alloc] init];
 		readVC.newsUrl = feed.post.appview;
 		[self.navigationController pushViewController:readVC animated:YES];
+        [self presentViewController:readVC animated:YES completion:nil];
 	}else {
 		MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 		hud.mode = MBProgressHUDModeText;
@@ -301,9 +304,11 @@
 #pragma mark --UIScrollView
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//	if (scrollView.contentOffset.y) {
-//		<#statements#>
-//	}
+    if (scrollView.contentOffset.y > _contentOffset_Y + 80) {
+        [self suspensionWithAlpha:0];
+    } else if (scrollView.contentOffset.y < _contentOffset_Y) {
+        [self suspensionWithAlpha:1];
+    }
 }
 /// 停止滚动时调用
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

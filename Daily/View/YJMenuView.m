@@ -57,7 +57,7 @@ static NSString *ID = @"menuCell";
 {
 	if (!_headerView) {
 		_headerView = [[UIView alloc] initWithFrame:CGRectMake(0, -KHeaderViewH, SCREEN_WIDTH, KHeaderViewH)];
-		_headerView.backgroundColor = [UIColor yellowColor];
+		_headerView.backgroundColor = [UIColor clearColor];
 	}
 	return _headerView;
 }
@@ -65,7 +65,7 @@ static NSString *ID = @"menuCell";
 {
 	if (!_footerView) {
 		_footerView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENH_HEIGHT, SCREEN_WIDTH, SCREENH_HEIGHT-KHeaderViewH)];
-		_footerView.backgroundColor = [UIColor cyanColor];
+		_footerView.backgroundColor = [UIColor clearColor];
 	}
 	return _footerView;
 }
@@ -97,7 +97,7 @@ static NSString *ID = @"menuCell";
 {
 	[UIView animateWithDuration:0.1 animations:^{
 		[self headerViewOffsetY:-KHeaderViewH];
-		[self footerViewOffsetY:SCREEN_WIDTH];
+		[self footerViewOffsetY:SCREENH_HEIGHT];
 	}completion:^(BOOL finished) {
 		[self setHidden:YES];
 	}];
